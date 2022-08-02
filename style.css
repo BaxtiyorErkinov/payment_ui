@@ -1,3 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Oswald:wght@300&family=Poppins:wght@200;300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-	background: red;
+  background: #f7f6fb;
+}
+.payment__container {
+  padding: 27px;
+  display: flex;
+}
+.payment__container .main__section {
+  padding: 100px;
+  background: #fff;
+  width: 80%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.payment__container .main__section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment__container .main__section header .logo {
+  cursor: pointer;
+}
+.payment__container .main__section header .profile {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  background: #f6f7f9;
+  border-radius: 31px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.payment__container .main__section header .profile:hover {
+  background: #fff;
+  transition: all 0.3s;
+}
+.payment__container
+  .main__section
+  header
+  .profile
+  .username {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+.payment__container
+  .main__section
+  header
+  .profile
+  .username
+  img {
+  width: 29px;
+  height: 22px;
+}
+
+/* -------------------------------------- header -----------------------------*/
+.main__section main {
+  margin-top: 65px;
+}
+.main__section main .payment__section {
+}
+.main__section
+  main
+  .payment__section
+  .payment__section__title {
+  display: flex;
+  justify-content: space-between;
+}
+.payment__section__title .title {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+
+  color: #000000;
+}
+.payment__section__title .secure {
+  display: flex;
+  column-gap: 12px;
+  justify-content: flex-end;
+}
+.payment__section__title .secure img {
+}
+.payment__section__title .secure .secure__content {
+  display: flex;
+  flex-direction: column;
+}
+.payment__section__title
+  .secure
+  .secure__content
+  .secure__title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+
+  color: #000000;
+}
+.payment__section__title
+  .secure
+  .secure__content
+  .secure__desc {
+  width: 60%;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #b0b0b0;
+  margin-top: 3px;
+}
+.payment__section .payment__steps {
+  display: flex;
+}
+.payment__section .payment__steps .payment__steps__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  column-gap: 20px;
+  border-bottom: 2px solid #e7e7e7;
+  padding-bottom: 4px;
+}
+.payment__section
+  .payment__steps
+  .payment__steps__list
+  .payment__steps__list__item {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+  color: #000000;
+  padding-bottom: 4px;
+  position: relative;
+  bottom: -4px;
+}
+.payment__section
+  .payment__steps
+  .payment__steps__list
+  .payment__steps__list__item.active {
+  border-bottom: 2px solid #000;
+}
+
+.payment__section .payment__steps__desc {
+  width: 40%;
+  display: flex;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  color: #b0b0b0;
+  margin-top: 5px;
+}
+.payment__actions {
+  margin-top: 58px;
+}
+
+.payment__actions .payment__card {
+  width: 343px;
+  background: #bdbdbd;
+  box-shadow: 0px 7px 12px 2px rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+}
+.payment__card .card__chip {
+  /* margin: 20px 0px 0px 20px; */
+}
+.payment__card .card__chip img {
+  margin: 15px 0px 0px 20px;
+  width: 40px;
+  height: 40px;
+}
+.payment__card .card__info {
+  min-width: 100%;
+  padding: 0 20px;
+  background: #616161;
+  box-shadow: 0px 6px 8px #000000;
+  border-radius: 57px 57px 12px 12px;
+}
+.payment__card .card__info .card__number__section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.card__number__title {
+  margin-top: 21px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #bdbdbd;
+  margin-bottom: 8px;
+}
+.card-number {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  transform: rotate(-0.02deg);
+}
+.card__holder__info {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+.card__holder {
+  display: flex;
+  flex-direction: column;
+}
+.holder_title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #bdbdbd;
+}
+.holder_name {
+  font-family: 'IBM Plex Sans', sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 18px;
+  color: #ffffff;
+}
+.card__expiration {
+}
+.expiration_title {
+  font-family: 'IBM Plex Sans', sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #bdbdbd;
+}
+.expiration__info {
+  display: flex;
+  /* align-items: center; */
+  column-gap: 8px;
+}
+.expiration__info__title img {
+  position: relative;
+  top: -5px;
+  margin-left: 3px;
+}
+.expiration_subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 13px;
+  color: #bdbdbd;
+}
+.expiration {
+  position: relative;
+  top: -5px;
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #ffffff;
+}
+
+/* ---------------- main setion --------------------------- */
+
+.payment__container .order__section {
+  width: 20%;
+  height: 100%;
+  padding: 100px;
 }
