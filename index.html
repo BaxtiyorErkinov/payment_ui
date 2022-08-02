@@ -1,13 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="./main.js"></script>
-	<link rel="stylesheet" type="text/css" href="./style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./style.css"
+    />
+  </head>
+  <body>
+    <div class="payment__container">
+      <div class="main__section">
+        <header>
+          <div class="logo">
+            <img src="./images/logo.png" alt="logo" />
+          </div>
+          <div class="profile">
+            <span class="username">
+              <img
+                src="./images/check.svg"
+                alt="heck"
+              /></span
+            >
+            <img
+              src="./images/avatar.png"
+              alt="avatar"
+              class="avatar"
+            />
+          </div>
+        </header>
+        <main>
+          <div class="payment__section">
+            <div class="payment__section__title">
+              <h2 class="title">Payment method</h2>
+              <div class="secure">
+                <img src="./images/lock.svg" alt="lock" />
+                <div class="secure__content">
+                  <span class="secure__title"
+                    >Card is secure</span
+                  >
+                  <span class="secure__desc"
+                    >We understand that purchasing Google
+                    products</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="payment__steps">
+              <ul class="payment__steps__list">
+                <li
+                  class="payment__steps__list__item active"
+                >
+                  Card number
+                </li>
+                <li class="payment__steps__list__item">
+                  SMS Verification
+                </li>
+                <li class="payment__steps__list__item">
+                  Order Address
+                </li>
+              </ul>
+            </div>
+            <span class="payment__steps__desc">
+              Lorem Ipsum is simply dummy text of the
+              printing and typesetting industry. Lorem Ipsum
+              has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer
+              took
+            </span>
+            <div class="payment__actions">
+            <div class="main__form" id="regForm">   
+            	<div class="tab">        		
+	              <div class="payment__card">
+	                <div class="card__chip">
+	                  <img src="./images/chip.png" alt="chip" />
+	                </div>
+	                <div class="card__info">
+	                  <div class="card__number__section">
+	                    <span class="card__number__title"
+	                      >card number</span
+	                    >
+	                    <span class="card-number"
+	                      >0000 0000 0000 0000</span
+	                    >
+	                  </div>
+	                  <div class="card__holder__info">
+	                    <div class="card__holder">
+	                      <span class="holder_title"
+	                        >cardholder name</span
+	                      >
+	                      <h4 class="holder_name"></h4>
+	                    </div>
+	                    <div class="card__expiration">
+	                      <span class="expiration_title"
+	                        >expiration</span
+	                      >
+	                      <div class="expiration__info">
+	                        <div
+	                          class="expiration__info__title"
+	                        >
+	                          <span class="expiration_subtitle"
+	                            >VALID THRU</span
+	                          >
+	                          <img
+	                            src="./images//rightArrow.svg"
+	                            alt="arr"
+	                          />
+	                        </div>
 
-</body>
+	                        <span class="expiration"
+	                          >00/00</span
+	                        >
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="payment__fields">
+	                <label for="cardNumber" class="cardNumber">
+	                	card number
+	                </label>
+	                  <input
+	                    type="text"
+	                    maxlength="19"
+	                    class="cc-number-input"
+	                  />
+	                <div class="confirm__section">
+		                <label for="cardExpire" class="cardExpire">Expire
+
+		                  <input
+		                    type="text"
+		                    maxlength="5"
+		                    class="cc-expiry-input"
+		                  />
+		                </label>
+		                <button class="confirm-btn" onclick="nextPrev(1)">
+		                  Confirm number
+		                </button>
+	                </div>
+	              </div>
+            	</div>		
+            	<div class="tab">
+            		<h2>tab2</h2>
+            		<button onclick="nextPrev(-1)">back</button>
+            	</div>
+            </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="order__section"></div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
 </html>
+
