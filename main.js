@@ -1,13 +1,17 @@
 const userName = "John Doe"
-const user = document.querySelector(".holder_name").textContent = userName
+const user = document.querySelectorAll(".holder_name")
+user[0].textContent = userName
+user[1].textContent = userName
+
 const avatar = document.querySelector(".username").append(userName)
 
 let cardTabs = document.querySelectorAll(".payment__steps__list__item")
 cardTabs[0].classList.add("active")
 
 
-let cardNumber = document.querySelector(".card-number")
-let expiration = document.querySelector(".expiration")
+let cardNumber = document.querySelectorAll(".card-number")
+
+let expiration = document.querySelectorAll(".expiration")
 let ccNumberInput = document.querySelector('.cc-number-input'),
   ccNumberPattern = /^\d{0,16}$/g,
   ccNumberSeparator = " ",
@@ -32,7 +36,8 @@ let ccNumberInput = document.querySelector('.cc-number-input'),
 
       output.push(value[i]);
       console.log(cardNumber.textContent)
-      cardNumber.textContent = ccNumberInput.value
+      cardNumber[0].textContent = ccNumberInput.value
+      cardNumber[1].textContent = ccNumberInput.value
 
     }
 
@@ -106,7 +111,9 @@ let ccNumberInput = document.querySelector('.cc-number-input'),
       newValue = mask(newValue, 2, ccExpirySeparator);
       el.value = newValue;
 
-      expiration.innerHTML = newValue
+      expiration[0].innerHTML = newValue
+      expiration[1].innerHTML = newValue
+
     } else {
       el.value = ccExpiryInputOldValue;
     }

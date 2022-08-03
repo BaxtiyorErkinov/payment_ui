@@ -74,6 +74,38 @@
             <div class="payment__actions">
               <div class="main__form" id="regForm">
                 <div class="tab">
+                  <div class="payment__fields">
+                    <label
+                      for="cardNumber"
+                      class="cardNumber"
+                    >
+                      card number
+                    </label>
+                    <input
+                      type="text"
+                      maxlength="19"
+                      class="cc-number-input"
+                    />
+                    <div class="confirm__section">
+                      <label
+                        for="cardExpire"
+                        class="cardExpire"
+                        >Expire
+
+                        <input
+                          type="text"
+                          maxlength="5"
+                          class="cc-expiry-input"
+                        />
+                      </label>
+                      <button
+                        class="confirm-btn"
+                        onclick="nextPrev(1)"
+                      >
+                        Confirm number
+                      </button>
+                    </div>
+                  </div>
                   <div class="payment__card">
                     <div class="card__chip">
                       <img
@@ -123,51 +155,70 @@
                       </div>
                     </div>
                   </div>
-                  <div class="payment__fields">
-                    <label
-                      for="cardNumber"
-                      class="cardNumber"
-                    >
-                      card number
-                    </label>
-                    <input
-                      type="text"
-                      maxlength="19"
-                      class="cc-number-input"
-                    />
-                    <div class="confirm__section">
-                      <label
-                        for="cardExpire"
-                        class="cardExpire"
-                        >Expire
-
-                        <input
-                          type="text"
-                          maxlength="5"
-                          class="cc-expiry-input"
-                        />
-                      </label>
-                      <button
-                        class="confirm-btn"
-                        onclick="nextPrev(1)"
-                      >
-                        Confirm number
-                      </button>
-                    </div>
-                  </div>
                 </div>
                 <div class="tab">
-                  <label class="send__mess-wrapper">
-                    phone number
-                    <input
-                      type="text"
-                      class="send__mess-input"
-                      placeholder="Type phone number"
-                    />
-                  </label>
-                  <button class="send__mess-btn">
-                    send
-                  </button>
+                  <div class="sendmess__container">
+                    <label class="send__mess-wrapper">
+                      phone number
+                      <input
+                        type="text"
+                        class="send__mess-input"
+                        placeholder="Type phone number"
+                      />
+                    </label>
+                    <button class="send__mess-btn">
+                      send
+                    </button>
+                  </div>
+                  <div class="payment__card">
+                    <div class="card__chip">
+                      <img
+                        src="./images/chip.png"
+                        alt="chip"
+                      />
+                    </div>
+                    <div class="card__info">
+                      <div class="card__number__section">
+                        <span class="card__number__title"
+                          >card number</span
+                        >
+                        <span class="card-number"
+                          >0000 0000 0000 0000</span
+                        >
+                      </div>
+                      <div class="card__holder__info">
+                        <div class="card__holder">
+                          <span class="holder_title"
+                            >cardholder name</span
+                          >
+                          <h4 class="holder_name"></h4>
+                        </div>
+                        <div class="card__expiration">
+                          <span class="expiration_title"
+                            >expiration</span
+                          >
+                          <div class="expiration__info">
+                            <div
+                              class="expiration__info__title"
+                            >
+                              <span
+                                class="expiration_subtitle"
+                                >VALID THRU</span
+                              >
+                              <img
+                                src="./images//rightArrow.svg"
+                                alt="arr"
+                              />
+                            </div>
+
+                            <span class="expiration"
+                              >00/00</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
