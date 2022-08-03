@@ -2,6 +2,9 @@ const userName = "John Doe"
 const user = document.querySelector(".holder_name").textContent = userName
 const avatar = document.querySelector(".username").append(userName)
 
+let cardNumberTabs = document.querySelectorAll(".payment__steps__list__item")
+cardNumberTabs[0].classList.add("active")
+
 
 let cardNumber = document.querySelector(".card-number")
 let expiration = document.querySelector(".expiration")
@@ -124,6 +127,10 @@ function showTab(n) {
   // This function will display the specified tab of the form...
   console.log(x)
   x[n].style.display = "flex";
+  cardNumberTabs[n].classList.add("active")
+  cardNumberTabs[n - 1].classList.remove("active")
+
+
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
@@ -145,6 +152,9 @@ function nextPrev(n) {
   // if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
   x[currentTab].style.display = "none";
+  	cardNumberTabs[currentTab].classList.remove("active")
+  
+
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
   // if you have reached the end of the form...
@@ -154,6 +164,7 @@ function nextPrev(n) {
   //   return false;
   // }
   // Otherwise, display the correct tab:
+
   showTab(currentTab);
 }
 function mySubmit(e) { 
