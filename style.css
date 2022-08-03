@@ -430,6 +430,12 @@ body {
   text-align: center;
   width: 100%;
   margin-top: 5px;
+  padding-left: 30px;
+}
+.send__mess-wrapper .send__mess-input::placeholder {
+  text-align: start;
+  font-size: 14px;
+  
 }
 
 .send__mess-btn {
