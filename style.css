@@ -47,7 +47,6 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   transition: all 0.3s;
-
 }
 
 .payment__container .main__section header .profile:hover {
@@ -55,7 +54,11 @@ body {
   transition: all 0.3s;
 }
 
-.payment__container .main__section header .profile .username {
+.payment__container
+  .main__section
+  header
+  .profile
+  .username {
   display: flex;
   align-items: center;
   column-gap: 12px;
@@ -68,7 +71,12 @@ body {
   color: #000000;
 }
 
-.payment__container .main__section header .profile .username img {
+.payment__container
+  .main__section
+  header
+  .profile
+  .username
+  img {
   width: 29px;
   height: 22px;
 }
@@ -83,9 +91,13 @@ body {
   margin-top: 65px;
 }
 
-.main__section main .payment__section {}
+.main__section main .payment__section {
+}
 
-.main__section main .payment__section .payment__section__title {
+.main__section
+  main
+  .payment__section
+  .payment__section__title {
   display: flex;
   justify-content: space-between;
 }
@@ -106,14 +118,18 @@ body {
   justify-content: flex-end;
 }
 
-.payment__section__title .secure img {}
+.payment__section__title .secure img {
+}
 
 .payment__section__title .secure .secure__content {
   display: flex;
   flex-direction: column;
 }
 
-.payment__section__title .secure .secure__content .secure__title {
+.payment__section__title
+  .secure
+  .secure__content
+  .secure__title {
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -123,7 +139,10 @@ body {
   color: #000000;
 }
 
-.payment__section__title .secure .secure__content .secure__desc {
+.payment__section__title
+  .secure
+  .secure__content
+  .secure__desc {
   width: 60%;
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
@@ -147,7 +166,10 @@ body {
   padding-bottom: 4px;
 }
 
-.payment__section .payment__steps .payment__steps__list .payment__steps__list__item {
+.payment__section
+  .payment__steps
+  .payment__steps__list
+  .payment__steps__list__item {
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -160,7 +182,10 @@ body {
   bottom: -5.5px;
 }
 
-.payment__section .payment__steps .payment__steps__list .payment__steps__list__item.active {
+.payment__section
+  .payment__steps
+  .payment__steps__list
+  .payment__steps__list__item.active {
   border-bottom: 2px solid #000;
 }
 
@@ -180,7 +205,8 @@ body {
   margin-top: 58px;
 }
 
-.main__form {}
+.main__form {
+}
 
 .tab {
   display: none;
@@ -276,7 +302,8 @@ body {
   color: #ffffff;
 }
 
-.card__expiration {}
+.card__expiration {
+}
 
 .expiration_title {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -332,7 +359,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  color: #B0B0B0;
+  color: #b0b0b0;
   margin-left: 3px;
 }
 
@@ -363,15 +390,15 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #B0B0B0;
+  color: #b0b0b0;
   display: flex;
   flex-direction: column;
   row-gap: 5px;
   width: 50%;
-  cc
 }
 
 .cc-expiry-input {
+  width: 100%;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -399,29 +426,23 @@ body {
   cursor: pointer;
 }
 
+.sendmess__container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
 .send__mess-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   font-family: 'IBM Plex Sans', sans-serif;
-
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 16px;
+  color: #b0b0b0;
+}
 
-  color: #BDBDBD;
-}
-.sendmess__container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-
-}
-.send__mess-wrapper {
-  width: 100%;
-}
 .send__mess-wrapper .send__mess-input {
   outline: none;
   border: none;
@@ -438,14 +459,12 @@ body {
   padding-left: 30px;
   display: flex;
   align-items: center;
-  
+  margin-top: 15px;
 }
 .send__mess-wrapper .send__mess-input::placeholder {
   text-align: start;
   font-size: 14px;
   line-height: 57px;
-
-  
 }
 
 .send__mess-btn {
@@ -460,9 +479,8 @@ body {
   cursor: pointer;
   text-transform: uppercase;
   width: 50%;
+  margin-top: 40px;
 }
-
-
 
 /* ---------------- main setion ^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -471,7 +489,6 @@ body {
   height: 100%;
   padding: 100px;
   position: relative;
-
 }
 
 .order__section__title {
@@ -484,7 +501,9 @@ body {
   margin-bottom: 13px;
 }
 
-.order__section .order__product__steps .order__product__steps__item {
+.order__section
+  .order__product__steps
+  .order__product__steps__item {
   display: flex;
 }
 
@@ -498,7 +517,7 @@ body {
   font-size: 10px;
   line-height: 10px;
   width: 90%;
-  color: #645A5A;
+  color: #645a5a;
 }
 
 .dropdown {
@@ -542,7 +561,6 @@ body {
   justify-content: space-between;
   font-family: 'IBM Plex Sans', sans-serif;
 
-
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -550,7 +568,6 @@ body {
 
   color: #000000;
 }
-
 
 .dropdown__arrow {
   border-bottom: 2px solid #000;
@@ -566,10 +583,9 @@ body {
 
 .dropdown input {
   display: none;
-
 }
 
-.dropdown input:checked~.dropdown__items {
+.dropdown input:checked ~ .dropdown__items {
   top: calc(100% + 25px);
   visibility: visible;
   opacity: 1;
@@ -578,14 +594,13 @@ body {
 .information {
   width: 100%;
   height: 50px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-left: 30px;
   font-family: 'IBM Plex Sans', sans-serif;
-
 }
 
 .totalPrice {
@@ -601,13 +616,9 @@ body {
   padding: 0 5px;
 
   color: #000000;
-
 }
 
-
-
 /* ---------------- order section ^^^^^^^ */
-
 
 /*------- MEDIA -------*/
 @media screen and (max-width: 640px) {
@@ -655,7 +666,10 @@ body {
     right: -20px;
   }
 
-  .main__section main .payment__section .payment__section__title {
+  .main__section
+    main
+    .payment__section
+    .payment__section__title {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -770,7 +784,10 @@ body {
     right: -20px;
   }
 
-  .main__section main .payment__section .payment__section__title {
+  .main__section
+    main
+    .payment__section
+    .payment__section__title {
     flex-direction: column;
     align-items: center;
     text-align: center;
