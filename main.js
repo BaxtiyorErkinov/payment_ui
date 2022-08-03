@@ -2,8 +2,8 @@ const userName = "John Doe"
 const user = document.querySelector(".holder_name").textContent = userName
 const avatar = document.querySelector(".username").append(userName)
 
-let cardNumberTabs = document.querySelectorAll(".payment__steps__list__item")
-cardNumberTabs[0].classList.add("active")
+let cardTabs = document.querySelectorAll(".payment__steps__list__item")
+cardTabs[0].classList.add("active")
 
 
 let cardNumber = document.querySelector(".card-number")
@@ -120,16 +120,15 @@ ccExpiryInput.addEventListener('input', ccExpiryInputInputHandler);
 
 
 let currentTab = 0;
-  var x = document.getElementsByClassName("tab");
-  x[currentTab].style.display = "flex"
+var x = document.getElementsByClassName("tab");
+x[currentTab].style.display = "flex"
 
 function showTab(n) {
   // This function will display the specified tab of the form...
   console.log(x)
   x[n].style.display = "flex";
-  cardNumberTabs[n].classList.add("active")
-  cardNumberTabs[n - 1].classList.remove("active")
-
+  cardTabs[n].classList.add("active")
+  cardTabs[n - 1].classList.remove("active")
 
   //... and fix the Previous/Next buttons:
   if (n == 0) {
@@ -152,8 +151,7 @@ function nextPrev(n) {
   // if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
   x[currentTab].style.display = "none";
-  	cardNumberTabs[currentTab].classList.remove("active")
-  
+  cardTabs[currentTab].classList.remove("active")
 
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
@@ -164,15 +162,22 @@ function nextPrev(n) {
   //   return false;
   // }
   // Otherwise, display the correct tab:
+  if (cardTabs[currentTab] == cardTabs[0]) {
+    cardTabs[0].onclick = function () {
+      console.log("ad")
+    }
+  } else {
+    cardTabs[0].onclick = () => nextPrev(-1)
+  }
 
   showTab(currentTab);
 }
-function mySubmit(e) { 
-  e.preventDefault(); 
+function mySubmit(e) {
+  e.preventDefault();
   try {
-   someBug();
+    someBug();
   } catch (e) {
-   throw new Error(e.message);
+    throw new Error(e.message);
   }
   return false;
 }

@@ -22,11 +22,8 @@
           </div>
           <div class="profile">
             <span class="username">
-              <img
-                src="./images/check.svg"
-                alt="heck"
-              /></span
-            >
+              <img src="./images/check.svg" alt="heck"
+            /></span>
             <img
               src="./images/avatar.png"
               alt="avatar"
@@ -55,6 +52,7 @@
               <ul class="payment__steps__list">
                 <li
                   class="payment__steps__list__item"
+                  onclick="nextPrev(-1)"
                 >
                   Card number
                 </li>
@@ -74,89 +72,188 @@
               took
             </span>
             <div class="payment__actions">
-            <div class="main__form" id="regForm">   
-            	<div class="tab">        		
-	              <div class="payment__card">
-	                <div class="card__chip">
-	                  <img src="./images/chip.png" alt="chip" />
-	                </div>
-	                <div class="card__info">
-	                  <div class="card__number__section">
-	                    <span class="card__number__title"
-	                      >card number</span
-	                    >
-	                    <span class="card-number"
-	                      >0000 0000 0000 0000</span
-	                    >
-	                  </div>
-	                  <div class="card__holder__info">
-	                    <div class="card__holder">
-	                      <span class="holder_title"
-	                        >cardholder name</span
-	                      >
-	                      <h4 class="holder_name"></h4>
-	                    </div>
-	                    <div class="card__expiration">
-	                      <span class="expiration_title"
-	                        >expiration</span
-	                      >
-	                      <div class="expiration__info">
-	                        <div
-	                          class="expiration__info__title"
-	                        >
-	                          <span class="expiration_subtitle"
-	                            >VALID THRU</span
-	                          >
-	                          <img
-	                            src="./images//rightArrow.svg"
-	                            alt="arr"
-	                          />
-	                        </div>
+              <div class="main__form" id="regForm">
+                <div class="tab">
+                  <div class="payment__card">
+                    <div class="card__chip">
+                      <img
+                        src="./images/chip.png"
+                        alt="chip"
+                      />
+                    </div>
+                    <div class="card__info">
+                      <div class="card__number__section">
+                        <span class="card__number__title"
+                          >card number</span
+                        >
+                        <span class="card-number"
+                          >0000 0000 0000 0000</span
+                        >
+                      </div>
+                      <div class="card__holder__info">
+                        <div class="card__holder">
+                          <span class="holder_title"
+                            >cardholder name</span
+                          >
+                          <h4 class="holder_name"></h4>
+                        </div>
+                        <div class="card__expiration">
+                          <span class="expiration_title"
+                            >expiration</span
+                          >
+                          <div class="expiration__info">
+                            <div
+                              class="expiration__info__title"
+                            >
+                              <span
+                                class="expiration_subtitle"
+                                >VALID THRU</span
+                              >
+                              <img
+                                src="./images//rightArrow.svg"
+                                alt="arr"
+                              />
+                            </div>
 
-	                        <span class="expiration"
-	                          >00/00</span
-	                        >
-	                      </div>
-	                    </div>
-	                  </div>
-	                </div>
-	              </div>
-	              <div class="payment__fields">
-	                <label for="cardNumber" class="cardNumber">
-	                	card number
-	                </label>
-	                  <input
-	                    type="text"
-	                    maxlength="19"
-	                    class="cc-number-input"
-	                  />
-	                <div class="confirm__section">
-		                <label for="cardExpire" class="cardExpire">Expire
+                            <span class="expiration"
+                              >00/00</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="payment__fields">
+                    <label
+                      for="cardNumber"
+                      class="cardNumber"
+                    >
+                      card number
+                    </label>
+                    <input
+                      type="text"
+                      maxlength="19"
+                      class="cc-number-input"
+                    />
+                    <div class="confirm__section">
+                      <label
+                        for="cardExpire"
+                        class="cardExpire"
+                        >Expire
 
-		                  <input
-		                    type="text"
-		                    maxlength="5"
-		                    class="cc-expiry-input"
-		                  />
-		                </label>
-		                <button class="confirm-btn" onclick="nextPrev(1)">
-		                  Confirm number
-		                </button>
-	                </div>
-	              </div>
-            	</div>		
-            	<div class="tab">
-            		<h2>tab2</h2>
-            		<button onclick="nextPrev(-1)">back</button>
-            	</div>
-            </div>
+                        <input
+                          type="text"
+                          maxlength="5"
+                          class="cc-expiry-input"
+                        />
+                      </label>
+                      <button
+                        class="confirm-btn"
+                        onclick="nextPrev(1)"
+                      >
+                        Confirm number
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab">
+                  <label class="send__mess-wrapper">
+                    phone number
+                    <input
+                      type="text"
+                      class="send__mess-input"
+                    />
+                  </label>
+                  <button class="send__mess-btn">
+                    send
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </main>
       </div>
-      <div class="order__section"></div>
+      <div class="order__section">
+        <h2 class="order__section__title">Order Product</h2>
+        <div class="order__product__steps">
+          <div class="order__product__steps__item">
+            <div class="box">
+              <img src="./images/credit-card.png" alt="" />
+              <div class="box__text">
+                <span class="box__step">Step 1</span>
+                <span class="box__step__info">
+                  Card number
+                </span>
+              </div>
+            </div>
+            <div class="box">
+              <img src="./images/sms.png" alt="" />
+              <div class="box__text">
+                <span class="box__step">Step 2</span>
+                <span class="box__step__info">
+                  Verification
+                </span>
+              </div>
+            </div>
+            <div class="box">
+              <img src="./images/cart.png" alt="" />
+              <div class="box__text">
+                <span class="box__step">Step 3</span>
+                <span class="box__step__info">
+                  Order form
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <input type="checkbox" id="dropdown" />
+
+          <label class="dropdown__face" for="dropdown">
+            <div class="dropdown__text">Order Details</div>
+
+            <div class="dropdown__arrow"></div>
+          </label>
+
+          <ul class="dropdown__items">
+            <li>
+              <span class="product__name"
+                >Leather mini-bag</span
+              ><span class="product__price">$ 1850.00</span>
+            </li>
+            <li>
+              <span class="product__name"
+                >Leather mini-bag</span
+              ><span class="product__price">$ 1850.00</span>
+            </li>
+            <li>
+              <span class="product__name"
+                >Leather mini-bag</span
+              ><span class="product__price">$ 1850.00</span>
+            </li>
+            <li>
+              <span class="product__name"
+                >Leather mini-bag</span
+              ><span class="product__price">$ 1850.00</span>
+            </li>
+            <li>
+              <span class="product__name"
+                >Leather mini-bag</span
+              ><span class="product__price">$ 1850.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="information">
+          <span>Information !</span>
+        </div>
+        <div class="totalPrice">
+          <span class="totalPrice__title">
+            Total Amount:
+          </span>
+          <span class="totalPrice__count">$ 3680.60</span>
+        </div>
+      </div>
     </div>
     <script src="./main.js"></script>
   </body>
 </html>
-
