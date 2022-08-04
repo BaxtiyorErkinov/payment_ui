@@ -1,3 +1,12 @@
+const totalPrice = document.querySelector(".totalPrice__count").textContent.replace(/\$ /g, "").replace(".", "")
+let token;
+
+function setTotalPrice() {
+	localStorage.setItem("soqqa", totalPrice)
+}
+document.addEventListener("DOMContentLoaded", setTotalPrice)
+console.log(typeof localStorage.getItem("soqqa"))
+
 const userName = "John Doe"
 const user = document.querySelectorAll(".holder_name")
 user[0].textContent = userName
@@ -131,13 +140,13 @@ var x = document.getElementsByClassName("tab");
 x[currentTab].style.display = "flex"
 
 function showTab(n) {
-  // This function will display the specified tab of the form...
   console.log(x)
   x[n].style.display = "flex";
   cardTabs[n].classList.add("active")
-  cardTabs[n - 1].classList.remove("active")
+  if(cardTabs[n-1] !== cardTabs[0]) {
+  	cardTabs[n - 1].classList.remove("active")
+  }
 
-  //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
@@ -148,37 +157,76 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  //... and run a function that will display the correct step indicator:
+
   fixStepIndicator(n)
 }
 function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  // if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  cardTabs[currentTab].classList.remove("active")
+	
 
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  // if (currentTab >= x.length) {
-  //   // ... the form gets submitted:
-  //   document.getElementById("regForm").submit();
-  //   return false;
-  // }
-  // Otherwise, display the correct tab:
-  if (cardTabs[currentTab] == cardTabs[0]) {
-    cardTabs[0].onclick = function () {
-      console.log("ad")
-    }
-  } else {
-    cardTabs[0].onclick = () => nextPrev(-1)
+  var x = document.getElementsByClassName("tab");
+  const cardNum = ccNumberInput.value.split(" ").join("")
+  const exp = ccExpiryInput.value.slice(0, 2) + "" + ccExpiryInput.value.slice(3, 5)
+
+  if(cardNum.length == 16 && exp.length == 4) {
+      axios.post("http://127.0.0.1:8000/api/payme/card/create/", {
+    	  		id: 123,
+    	   		params: {
+    		        card: { "number": cardNum, "expire": exp},
+    		        amount: +localStorage.getItem("soqqa"), 
+    		        save: true
+    	    	}
+    		}).then(res => {
+            x[currentTab].style.display = "none";
+            cardTabs[currentTab].classList.remove("active")
+            token = res.data.token
+            currentTab = currentTab + n;
+            showTab(currentTab)
+        })
+  }
+}
+function goToAddress() {
+  var x = document.getElementsByClassName("tab");
+  const codeInputValue = document.querySelector(".send__mess-input")
+
+  if(codeInputValue.value.length > 0) { 
+    axios.post("http://127.0.0.1:8000/api/payme/card/verify/", {
+      "id": 123,
+      "params": {
+          "token": token,
+          "code": "666666"
+      }
+    }).then(res => {
+      if(!res.data.hasOwnProperty("error")) {
+        x[currentTab].style.display = "none";
+        cardTabs[currentTab].classList.remove("active")
+        currentTab = 2;
+        showTab(currentTab);
+      }
+    })
   }
 
-  showTab(currentTab);
 }
+
+// function backToPrev(n) {
+//   var x = document.getElementsByClassName("tab");
+//   x[currentTab].style.display = "none";
+//   currentTab = currentTab + n
+//   cardTabs[currentTab].classList.remove("active")
+//   if (cardTabs[currentTab] !== cardTabs[0]) {
+//     cardTabs[0].onclick = nextPrev(-1)
+//   } else if(cardTabs[currentTab] == cardTabs[1]){
+//     cardTabs[2].onclick = () => nextPrev(-1)
+
+//   } else if(cardTabs[currentTab] == cardTabs[2]) {
+//     cardTabs[1].onclick = () => nextPrev(1)
+//   } else {
+//     cardTabs[0].onclick = () => false
+//   }
+//   showTab(currentTab)
+// }
+
+
+
 function mySubmit(e) {
   e.preventDefault();
   try {
