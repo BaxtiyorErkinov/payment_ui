@@ -3,12 +3,6 @@ const base_url = "http://127.0.0.1:8000/api/"
 const totalPrice = document.querySelector(".totalPrice__count").textContent.replace(/\$ /g, "").replace(".", "")
 let token;
 
-function setTotalPrice() {
-	localStorage.setItem("soqqa", totalPrice)
-}
-document.addEventListener("DOMContentLoaded", setTotalPrice)
-console.log(typeof localStorage.getItem("soqqa"))
-
 const userName = "John Doe"
 const user = document.querySelectorAll(".holder_name")
 user[0].textContent = userName
@@ -242,17 +236,6 @@ function goToAddress() {
 // }
 
 
-
-function mySubmit(e) {
-  e.preventDefault();
-  try {
-    someBug();
-  } catch (e) {
-    throw new Error(e.message);
-  }
-  return false;
-}
-
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
@@ -284,3 +267,16 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+const getPriceApiUrl = "http://127.0.0.1:8000/Study_Get/"
+const url = window.location.pathname
+const productFullUrl = url.split("/")
+const id = productFullUrl[productFullUrl.length - 1]
+
+async function getProductPrice(id = 1) {
+  const res = await axios.get(getPriceApiUrl + id)
+  await localStorage.setItem("soqqa", res.data.price)
+  document.querySelector(".totalPrice__count").textContent = res.data.price
+}
+getProductPrice()
+// getProductPrice(id)  shuni komentdan ocb quyasiz projectizga quwganda tepadegi getProductPrice() uchirib quyin
