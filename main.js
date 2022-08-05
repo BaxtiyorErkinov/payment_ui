@@ -1,3 +1,5 @@
+const base_url = "http://127.0.0.1:8000/api/"
+
 const totalPrice = document.querySelector(".totalPrice__count").textContent.replace(/\$ /g, "").replace(".", "")
 let token;
 
@@ -168,7 +170,7 @@ function nextPrev(n) {
   const exp = ccExpiryInput.value.slice(0, 2) + "" + ccExpiryInput.value.slice(3, 5)
 
   if(cardNum.length == 16 && exp.length == 4) {
-      axios.post("http://127.0.0.1:8000/api/payme/card/create/", {
+      axios.post(`${base_url}payme/card/create/`, {
     	  		id: 123,
     	   		params: {
     		        card: { "number": cardNum, "expire": exp},
@@ -189,7 +191,7 @@ function goToAddress() {
   const codeInputValue = document.querySelector(".send__mess-input")
 
   if(codeInputValue.value.length > 0) { 
-    axios.post("http://127.0.0.1:8000/api/payme/card/verify/", {
+    axios.post(`${base_url}payme/card/verify/`, {
       "id": 123,
       "params": {
           "token": token,
@@ -201,6 +203,20 @@ function goToAddress() {
         cardTabs[currentTab].classList.remove("active")
         currentTab = 2;
         showTab(currentTab);
+      }
+        return res
+    }).then(res => {
+      if(!res.data.hasOwnProperty("error")){
+        axios.post(`${base_url}payme/payment/`, {
+              "id": 123,
+              "params": {     
+                  "token": token,
+                  "amount": +localStorage.getItem("soqqa"),
+                  "account": {
+                      "order_id": 1
+                  }
+              }
+        })
       }
     })
   }
