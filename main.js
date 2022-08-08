@@ -1,7 +1,18 @@
+const base_url = "http://127.0.0.1:8000/my_payme"
+
+const dropdown = document.getElementById("dropdown").defaultChecked = true
+const tabDescription = document.querySelector(".payment__steps__desc").textContent = "Lorem 1"
+
+const totalPrice = document.querySelector(".totalPrice__count").textContent.replace(/\$ /g, "").replace(".", "")
+let token;
+
 const userName = "John Doe"
 const user = document.querySelectorAll(".holder_name")
 user[0].textContent = userName
 user[1].textContent = userName
+var amount = 0
+
+console.log(document.cookie.split("=")[1])
 
 const avatar = document.querySelector(".username").append(userName)
 
@@ -131,13 +142,13 @@ var x = document.getElementsByClassName("tab");
 x[currentTab].style.display = "flex"
 
 function showTab(n) {
-  // This function will display the specified tab of the form...
   console.log(x)
   x[n].style.display = "flex";
   cardTabs[n].classList.add("active")
-  cardTabs[n - 1].classList.remove("active")
+  if (cardTabs[n - 1] !== cardTabs[0]) {
+    cardTabs[n - 1].classList.remove("active")
+  }
 
-  //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
@@ -148,46 +159,103 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  //... and run a function that will display the correct step indicator:
+
   fixStepIndicator(n)
 }
 function nextPrev(n) {
-  // This function will figure out which tab to display
+
+
   var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  // if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
+  const cardNum = ccNumberInput.value.split(" ").join("")
+  const exp = ccExpiryInput.value.slice(0, 2) + "" + ccExpiryInput.value.slice(3, 5)
+
+  if (cardNum.length == 16 && exp.length == 4) {
+    axios.post(`${base_url}/card/create/`, {
+      id: 123,
+      params: {
+        card: { "number": cardNum, "expire": exp },
+        amount: +amount,
+        save: true
+      }
+    },
+      {
+        headers: {
+          'X-CSRFToken': document.cookie.split('=')[1]
+        }
+      }
+    ).then(res => {
+      x[currentTab].style.display = "none";
+      cardTabs[currentTab].classList.remove("active")
+      token = res.data.token
+      currentTab = currentTab + n;
+      showTab(currentTab)
+      tabDescription.textContent = "Lorem 2"
+    })
+  }
+}
+function goToAddress() {
+  var x = document.getElementsByClassName("tab");
+  const codeInputValue = document.querySelector(".send__mess-input")
+
+  if (codeInputValue.value.length > 0) {
+    axios.post(`${base_url}/card/verify/`, {
+      "id": 123,
+      "params": {
+        "token": token,
+        "code": codeInputValue.value
+      }
+    },
+      {
+        headers: {
+          'X-CSRFToken': document.cookie.split('=')[1]
+        }
+      }
+    ).then(res => {
+      if (!res.data.hasOwnProperty("error")) {
+        axios.post(`${base_url}/payment/`, {
+          "id": 123,
+          "params": {
+            "token": token,
+            "amount": +amount,
+            "account": {
+              "order_id": 1
+            }
+          }
+        },
+          {
+            headers: {
+              'X-CSRFToken': document.cookie.split('=')[1]
+            }
+          })
+        x[currentTab].style.display = "none";
+        cardTabs[currentTab].classList.remove("active")
+        currentTab = 2;
+        showTab(currentTab);
+        tabDescription.textContent = "Lorem 3"
+      }
+    })
+  }
+
+}
+
+function backToPrev(n) {
+  var x = document.getElementsByClassName("tab");
   x[currentTab].style.display = "none";
+  currentTab = currentTab + n
   cardTabs[currentTab].classList.remove("active")
+  if (cardTabs[currentTab] !== cardTabs[0]) {
+    cardTabs[0].onclick = nextPrev(-1)
+  } else if (cardTabs[currentTab] == cardTabs[1]) {
+    cardTabs[2].onclick = () => nextPrev(-1)
 
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  // if (currentTab >= x.length) {
-  //   // ... the form gets submitted:
-  //   document.getElementById("regForm").submit();
-  //   return false;
-  // }
-  // Otherwise, display the correct tab:
-  if (cardTabs[currentTab] == cardTabs[0]) {
-    cardTabs[0].onclick = function () {
-      console.log("ad")
-    }
+  } else if (cardTabs[currentTab] == cardTabs[2]) {
+    cardTabs[1].onclick = () => nextPrev(1)
   } else {
-    cardTabs[0].onclick = () => nextPrev(-1)
+    cardTabs[0].onclick = () => false
   }
+  showTab(currentTab)
+}
 
-  showTab(currentTab);
-}
-function mySubmit(e) {
-  e.preventDefault();
-  try {
-    someBug();
-  } catch (e) {
-    throw new Error(e.message);
-  }
-  return false;
-}
 
 function validateForm() {
   // This function deals with validation of the form fields
@@ -220,3 +288,17 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+const getPriceApiUrl = "http://127.0.0.1:8000/order/Study_Get_order/"
+const url = window.location.pathname
+const productFullUrl = url.split("/")
+const id = productFullUrl[productFullUrl.length - 2]
+
+
+async function getProductPrice(id = 1) {
+  const res = await axios.get(`${getPriceApiUrl + id}/`)
+  amount = `${res.data.price}00`
+  document.querySelector(".totalPrice__count").textContent = res.data.price
+}
+// getProductPrice()
+getProductPrice(id)
