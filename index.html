@@ -12,6 +12,7 @@
       type="text/css"
       href="./style.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="payment__container">
@@ -52,7 +53,6 @@
               <ul class="payment__steps__list">
                 <li
                   class="payment__steps__list__item"
-                  onclick="nextPrev(-1)"
                 >
                   Card number
                 </li>
@@ -167,7 +167,7 @@
                       >
                     </input>
                     </label>
-                    <button class="send__mess-btn">
+                    <button class="send__mess-btn" onclick="goToAddress()">
                       send
                     </button>
                   </div>
@@ -220,6 +220,15 @@
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="tab">
+                	<div class="address__container">
+                		<form>
+                			<input type="text" class="address__input" />
+                			<input type="text" class="address__input-sec" />
+                			<button class="address__form-submit">SUBMIT</button>
+                		</form>
+                	</div>
                 </div>
               </div>
             </div>

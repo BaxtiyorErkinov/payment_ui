@@ -499,6 +499,44 @@ body {
   min-width: 50%;
   margin-top: 40px;
 }
+.address__container {
+	width: 50%;
+}
+.address__container form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 15px;
+}
+.address__container form input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  height: 57px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  padding-left: 24px;
+  background: rgba(176, 176, 176, 0.31);
+  color: #000000;
+}
+.address__container form button {
+  height: 57px;
+  background: #000000;
+  border-radius: 8px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 0 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  min-width: 50%;
+
+}
+
 
 /* ---------------- main setion ^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -758,6 +796,9 @@ body {
   }
   .send__mess_title {
     font-size: 14px;
+  }
+  .address__container {
+  	width: 100%;
   }
 }
 
